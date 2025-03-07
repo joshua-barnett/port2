@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Ray Barnett | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Joshua Ray Barnett</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">College Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn animate__delay-1s">Welcome to My Portfolio</h2>
+            <p class="animate__animated animate__fadeIn animate__delay-2s">Explore my college work!</p>
+        </div>
+    </section>
+
+    <section id="about" class="animate__animated animate__fadeIn animate__delay-3s">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hello! I'm Joshua Barnett.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="animate__animated animate__fadeIn animate__delay-4s">
+        <div class="container">
+            <h2>College Assessments</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-slide-url="https://docs.google.com/presentation/d/1Xn6uJ9uAZHYspPUN00vVOdFkkgU0w0_wD4yeyo-yAfg/edit?usp=sharing">
+                    <h3>Assessment 1</h3>
+                    <p>Threat Actors.</p>
+                </div>
+                <div class="project-card" data-slide-url="https://docs.google.com/presentation/d/1IWjpNkCV6MG7CRlIwwOmbC5aUQc-_-lLaQkaLjm5pBo/edit?usp=sharing">
+                    <h3>Assessment 2</h3>
+                    <p>Current and emerging challenges.</p>
+                </div>
+                <div class="project-card" data-slide-url="https://docs.google.com/presentation/d/1mwjV2lsxQo59hu6JPlejYjp3HBzXuuEGy3Xl_0QFGKI/edit?usp=sharing">
+                    <h3>Assessment 3</h3>
+                    <p>Legislation And Ethical Conduct.</p>
+                </div>
+                <div class="project-card" data-slide-url="https://docs.google.com/presentation/d/1KXq1qJjBD64alWOtm0eyW8wmycHex5S-Hc8aQnQdC1o/edit?usp=sharing">
+                    <h3>Assessment 4</h3>
+                    <p>Common and emerging threats.</p>
+                </div>
+                <div class="project-card" data-slide-url="https://docs.google.com/document/d/1eKnMHvKHMKdEAh7lYQIIa1G3FLgjI6yXYDgYhM2U-7U/edit?usp=sharing">
+                    <h3>Assessment 5</h3>
+                    <p>User Access Control.</p>
+                </div>
+                <div class="project-card" data-slide-url="https://docs.google.com/document/d/1qcLvssHZQ4Su5W6RWXS-opHbMDHf41Drny_VtbcIKI0/edit?usp=sharing">
+                    <h3>Assessment 6</h3>
+                    <p>Team Dynamics Report.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="animate__animated animate__fadeIn animate__delay-5s">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you'd like to collaborate or ask any questions, feel free to reach out to me!</p>
+            <a href="mailto:youremail@example.com" class="btn">Send Email</a>
+        </div>
+    </section>
+
+    <footer class="animate__animated animate__fadeIn animate__delay-6s">
+        <div class="container">
+            <p>&copy; 2025 Joshua Ray Barnett. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(projectCard) {
+            var modal = document.getElementById("modal");
+            var modalBody = document.getElementById("modal-body");
+            var slideUrl = projectCard.getAttribute('data-slide-url');
+            
+            if (slideUrl) {
+                window.open(slideUrl, "_blank");
+            }
+
+            modalBody.innerHTML = `<iframe src="${slideUrl}" width="100%" height="500px" frameborder="0"></iframe>`;
+            modal.style.display = "block"; 
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none"; 
+        }
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                openModal(card); 
+            });
+        });
+    </script>
+
+</body>
+</html>
